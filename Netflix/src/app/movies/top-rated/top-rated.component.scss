@@ -1,0 +1,56 @@
+.itemContent img {
+    width:100%;
+    -webkit-transition: all 1s ease;
+    transition: all 0.6s ease;
+    -webkit-filter: brightness(50%);
+  }
+
+.itemContent img:hover {
+ -webkit-filter: brightness(100%);
+ text-decoration: none;
+}
+
+.movieDetail {
+    position: relative;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 10px;
+    width: 100;
+    margin-top: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom-style: solid;
+    border: 0.5px solid grey;
+    padding:10px;
+
+}
+.movieDetail span {
+  font-family: cursive;
+}
+
+.movieImage a:hover {
+  text-decoration: none;
+}
+.itemSection a{
+  font-size: 17px;
+  color: white;
+  text-decoration: none;
+}
+
+.matIcon {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.topRatedTitle {
+  text-align:center;
+}
+.topRatedTitle span {
+  color: #ffffff;
+  font-family: cursive;
+  font-weight: 700;
+  font-size:24px;
+}

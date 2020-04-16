@@ -1,0 +1,31 @@
+<div class="header">
+    <mat-toolbar class="bg-dark" style="height:auto">
+        <!-- the hidden menu -->
+        <div fxHide.gt-xs class="menuToggle">
+            <button mat-icon-button (click)="onToggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div class="brand"><a class="navbar-brand"><img src="../assets/logo.png" class="logo"></a></div>
+        <div class="navigationItems">
+            <a href="#">Home</a>
+        </div>
+        <!-- the menu -->
+        <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+            <ul fxLayout fxLayoutGap="15px" class="navigationItems">
+                <li>
+                    <a routerLink="/movies">Movies</a>
+                </li>
+                <li>
+                    <a routerLink="/tv-shows">Tv-shows</a>
+                </li>
+                <li>
+                    <a routerLink="/people">People</a>
+                </li>
+                <li>
+                    <a routerLink="/favorites">My favorites</a>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar>
+</div>

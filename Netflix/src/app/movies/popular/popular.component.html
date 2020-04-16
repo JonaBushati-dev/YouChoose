@@ -1,0 +1,22 @@
+<div class="popularComponent">
+    <div class="popularTile mt-2 mb-4"><span>Popular Movies</span></div>
+    <div class="popularContent">
+        <div *ngIf="popular" class="row">
+            <div *ngFor="let movie of popular.results" class="col-md-2 col-sm-4 col-xs-12 mb-2
+        ">
+                <div class="itemContent">
+
+                    <a [routerLink]="['/movies/movie-detail/',movie.id]">
+                        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="poster"
+                            class="img img-responsive" />
+                        <div class="movieDetail">
+                            <span *ngIf="movie.title"> {{movie.title}}</span> (
+                            <span *ngIf="movie.release_date">{{movie.release_date | date: 'y'}}</span> )
+                            <span *ngIf="movie.vote_average" class="IMBD">IMBD {{movie.vote_average}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

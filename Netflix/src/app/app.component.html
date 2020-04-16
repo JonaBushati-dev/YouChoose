@@ -1,0 +1,17 @@
+<div class="appComponent bg-dark">
+  <div class="container-fluid">
+    <!-- the sidenav content and the main content -->
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav role="navigation">
+        <app-sidenav (sidenavClose)="sidenav.close()"></app-sidenav>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+        <app-footer></app-footer>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

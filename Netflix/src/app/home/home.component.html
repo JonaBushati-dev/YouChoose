@@ -1,0 +1,113 @@
+<div class="homeComponent">
+    <div class="row justify-content-center">
+        <div class="search">
+            <app-search 
+            (inputChange)="searchTerm$.next($event)"
+            ></app-search>
+        </div>
+    </div>
+<!-- search results-->
+    <div *ngIf="multi" class="row ">
+        <div *ngFor="let multi of multi.results | slice:0:6" class="col-md-2 col-sm-4 col-xs-12 mb-2
+                ">
+                <!-- distinguishing the item based on the unique property it has -->
+            <div *ngIf="multi.title" class="movieItem">  
+                <div class="itemContent">
+                    <a [routerLink]="['/movies/movie-detail',multi.id]">
+                        <img src="https://image.tmdb.org/t/p/w500/{{multi.poster_path}}" alt="poster"
+                            class="img img-responsive" />
+                        <div class="itemDetail">
+                            <span *ngIf="multi.title"> {{multi.title}}</span> (
+                            <span *ngIf="multi.release_date">{{multi.release_date | date: 'y'}}</span> )
+                            <span *ngIf="multi.vote_average" class="IMBD">IMBD {{multi.vote_average}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div *ngIf="multi.first_air_date" class="tvshowItem">
+                <div class="itemContent">
+                    <a>
+                        <img src="https://image.tmdb.org/t/p/w500/{{multi.poster_path}}" alt="poster"
+                            class="img img-responsive" />
+                        <div class="itemDetail">
+                            <span *ngIf="multi.name"> {{multi.name}}</span> (
+                            <span *ngIf="multi.first_air_date">{{multi.first_air_date | date: 'y'}}</span> )
+                            <span *ngIf="multi.vote_average" class="IMBD">IMBD {{multi.vote_average}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div *ngIf="multi.gender" class="peopleItem">
+                <div class="itemContent">
+                    <a>
+                        <img src="https://image.tmdb.org/t/p/w500/{{multi.profile_path}}" alt="poster"
+                            class="img img-responsive" />
+                        <div class="itemDetail">
+                            <span *ngIf="multi.name"> {{multi.name}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+       <!-- home content -->
+            <div class="itemSection mb-2"><a href="/movies">Movies<span class="matIcon">
+                        <mat-icon>arrow_right</mat-icon>
+                    </span></a></div>
+            <div *ngIf="movies" class="row ">
+                <div *ngFor="let movie of movies.results | slice:0:6" class="col-md-2 col-sm-4 col-xs-12 mb-2
+                    ">
+                    <div class="itemContent">
+                        <a [routerLink]="['/movies/movie-detail',movie.id]">
+                            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="poster"
+                                class="img img-responsive" />
+                            <div class="itemDetail">
+                                <span *ngIf="movie.title"> {{movie.title}}</span> (
+                                <span *ngIf="movie.release_date">{{movie.release_date | date: 'y'}}</span> )
+                                <span *ngIf="movie.vote_average" class="IMBD">IMBD {{movie.vote_average}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itemSection mb-2"><a href="/tv-shows">Tv-Shows<span class="matIcon">
+                        <mat-icon>arrow_right</mat-icon>
+                    </span></a></div>
+            <div *ngIf="tvShows" class="row ">
+                <div *ngFor="let tvShow of tvShows.results | slice:0:6" class="col-md-2 col-sm-4 col-xs-12 mb-2
+                         ">
+                    <div class="itemContent">
+                        <a>
+                            <img src="https://image.tmdb.org/t/p/w500/{{tvShow.poster_path}}" alt="poster"
+                                class="img img-responsive" />
+                            <div class="itemDetail">
+                                <span *ngIf="tvShow.name"> {{tvShow.name}}</span> (
+                                <span *ngIf="tvShow.first_air_date">{{tvShow.first_air_date | date: 'y'}}</span> )
+                                <span *ngIf="tvShow.vote_average" class="IMBD">IMBD {{tvShow.vote_average}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="itemSection mb-2"><a href="/people">People<span class="matIcon">
+                        <mat-icon>arrow_right</mat-icon>
+                    </span></a></div>
+            <div *ngIf="people" class="row ">
+                <div *ngFor="let person of people.results | slice:0:6" class="col-md-2 col-sm-4 col-xs-12 mb-2
+                              ">
+                    <div class="itemContent">
+                        <a>
+                            <img src="https://image.tmdb.org/t/p/w500/{{person.profile_path}}" alt="poster"
+                                class="img img-responsive" />
+                            <div class="itemDetail">
+                                <span *ngIf="person.name"> {{person.name}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+    </div>

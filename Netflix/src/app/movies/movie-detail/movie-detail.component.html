@@ -1,0 +1,58 @@
+<div *ngIf="movie" class="movieDetail">
+    <div class="row ">
+        <!-- The poster Image -->
+        <div class="col-md-4 col-sm-6 col-xs-12 justify-content-center align-self-center">
+            <div class="itemImg text-center ">
+                <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="poster"
+                    class="img img-responsive img-detail" />
+            </div>
+        </div>
+
+        <!-- The content -->
+        <div class="col-md-8 col-sm-6 col-xs-12 justify-content-center align-self-center mt-3">
+            <div class="movieItemInfo">
+                <div class="itemHeader mb-3">
+                    <div class="itemTitle "><span class="title pr-1"
+                            *ngIf="movie.title">{{movie.title | uppercase}}</span></div>
+                    <div class="itemInfo pt-2"><span class="itemReleaseTime pr-1">
+                            <mat-icon class="infoIcon">info</mat-icon><span
+                                *ngIf="movie.release_date">{{movie.release_date}} </span>
+                        </span>
+                        <span class="itemGenres pr-1">
+                            <mat-icon class="infoRadioMarkIcon">radio_button_unchecked</mat-icon><span
+                                *ngFor="let genre of movie.genres">{{genre.name}} </span>
+                        </span>
+                        <span class="itemRuntime pr-1">
+                            <mat-icon class="infoTimeIcon">av_timer</mat-icon><span class="itemRuntime pr-1"
+                                *ngIf="movie.runtime">{{movie.runtime}}</span>mins
+                        </span>
+                        <span class="itemLanguage">
+                            <mat-icon class="infoLanguageIcon">language</mat-icon> <span
+                                *ngFor="let lang of movie.spoken_languages">{{lang.name}} </span>
+                        </span></div>
+                </div>
+                <div class="itemContent">
+                    <div class="itemTagline pb-3 " *ngIf="movie.tagline">{{movie.tagline}}</div>
+                    <div class="itemDescription pb-2">Description</div>
+                    <div class="itemOverview" *ngIf="movie.overview">{{movie.overview}}</div>
+                    <div class="itemExtraAvtivity pt-4">
+                        <span class="itemFavorite">Add to favorites<button mat-button
+                                (click)="addItem($event, movie.id)">
+                                <mat-icon class="infoFavoriteIcon">favorite</mat-icon>
+                            </button></span>
+                        <span class="itemTrailer">Watch trailer<button mat-button (click)="showTrailer()">
+                                <mat-icon class="infoItemTrailerIcon">remove_red_eye</mat-icon>
+                            </button></span>
+                        <div class="confirmItem" *ngIf="addFavorite">This item is added to your favorites</div>
+                        <div class="movieTrailer" [hidden]="showContent">
+
+                            <youtube-player videoId={{videos.results[0].key}} suggestedQuality="highres"
+                                [startSeconds]="0" [endSeconds]="60">
+                            </youtube-player>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

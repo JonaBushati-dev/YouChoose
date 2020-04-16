@@ -1,0 +1,53 @@
+// to access the hidden classes of Angular Material
+::ng-deep .mat-form-field { 
+    .mat-input-element {
+        color: white;
+    }
+    .mat-form-field-label {
+        color: white;
+    }
+    .mat-form-field-underline {
+        background-color: transparent;
+    }
+    .mat-form-field-ripple {
+        background-color: white;
+    }
+    .mat-form-field-required-marker {
+        color: white;
+    }
+   
+}
+
+::ng-deep .mat-icon {
+    color: white;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+    .mat-form-field-label {
+        color: white;
+    }
+    .mat-form-field-ripple {
+        background-color: white;
+    }
+    .mat-form-field-required-marker {
+        color: white;
+    }
+    .mat-input-element {
+        color: white;
+        caret-color: white;
+   
+
+        
+    }
+}
+
+.searchComponent {
+    margin: 3vw;
+    border: 0.5px solid grey;
+    padding:10px;
+    
+}
+
+.searchComponent:focus-within { 
+   border-color: transparent;
+}
