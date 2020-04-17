@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MovieService } from '../movie.service';
 import {Subject} from 'rxjs';
-import { ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
   movies;
   tvShows;
   people;
-  routTo: string;
   constructor(
     private movieService: MovieService) {
     this.movieService.search(this.searchTerm$)
