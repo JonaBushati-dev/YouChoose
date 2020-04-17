@@ -10,6 +10,7 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
 import { TopRatedComponent } from './movies/top-rated/top-rated.component';
 import { UpcomingComponent } from './movies/upcoming/upcoming.component';
 import { NowPlayingComponent } from './movies/now-playing/now-playing.component';
+import { PeopleComponent } from './people/people.component';
 
 
 export const routerConfig: Routes = [
@@ -49,6 +50,10 @@ export const routerConfig: Routes = [
       {
         path: 'tv-shows',
         component: TvShowsComponent
+      },
+      {
+        path: 'people',
+        component: PeopleComponent
       },
       {
         path: 'favorites',
